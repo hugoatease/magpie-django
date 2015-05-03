@@ -14,14 +14,15 @@
 # limitations under the License.
 
 from django.db import models
+from django.utils.translation import ugettext_lazy as _
 from django.contrib.auth.models import User
 
 charlength = 64
 
 class Invite(models.Model):
     class Meta:
-        verbose_name = "Invitation"
-        verbose_name_plural = "Invitations"
+        verbose_name = _("Invitation")
+        verbose_name_plural = _("Invitations")
         ordering = ['-date']
 
     date = models.DateTimeField(auto_now=True)
@@ -30,8 +31,8 @@ class Invite(models.Model):
 
 class MailValidation(models.Model):
     class Meta:
-        verbose_name = "Validation d'addresse e-mail"
-        verbose_name_plural = "Validations d'addresse e-mail"
+        verbose_name = _("Email validation")
+        verbose_name_plural = _("Email validations")
     
     user = models.ForeignKey(User, related_name="mailvalidations")
     date = models.DateTimeField(auto_now=True)

@@ -1,3 +1,5 @@
-Vous avez demandé la récupération du mot de passe associé à votre compte {{ BRAND_NAME }}. 
-
-Pour procéder à la récupération de compte, suivez ce lien  : {{ url }} .
+{% load i18n %}
+{% blocktrans %}
+You have requested password recovery for your {{ BRAND_NAME }} account.
+To finish this process and set new passwords, please follow this link: {{ url }} .
+{% endblocktrans %}

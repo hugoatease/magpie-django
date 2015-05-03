@@ -1,5 +1,7 @@
-Vous avez demandé le changement de l'adresse e-mail associée à votre compte {{ BRAND_NAME }}. 
+{% load i18n %}
+{% blocktrans %}
+You've asked to change email address associated with your {{ BRAND_NAME }} account.
+Your account's email address will be change to : {{ email }} .
 
-La nouvelle adresse associée à votre compte sera : {{ email }}
-
-Pour procéder au changement, suivez l'adresse  : {{ url }} .
+To finish this process, please follow this link : {{ url }} .
+{% endblocktrans %}

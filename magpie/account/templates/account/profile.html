@@ -1,5 +1,6 @@
+{% load i18n %}
 {% load bootstrap3 %}
-<h3>Informations de compte</h3>
+<h3>{% trans 'User information' %}</h3>
 <hr />
 
 <div class="row">
@@ -8,7 +9,7 @@
 		{% csrf_token %}
 		{% bootstrap_form profileform %}
 		<input type="hidden" name="profile" value="1" />
-		<input type="submit" class="btn btn-primary" value="Modifier" />
+		<input type="submit" class="btn btn-primary" value="{% trans 'Change information' %}" />
 	</form>
 	</div>
 </div>

@@ -1,14 +1,15 @@
 {% extends 'error_base.html' %}
+{% load i18n %}
 {% block error_code %}404{% endblock %}
 {% block content %}
 <div class="page-header">
-    <h1>Erreur 404 <small>Page non trouvée</small></h1>
+    <h1>404 <small>{% trans "Page not found" %}</small></h1>
 </div>
 
 <p>
-    La ressource à laquelle vous avez souhaité accéder n'existe pas.<br />
-    Il est possible que vous ayez suivi un lien qui n'est plus valide,
-    ou que la ressource demandée ait été supprimée.<br />
-    <b>URL de la ressource:</b> {{ request_path }}
+    {% blocktrans %}
+    The requested URL doesn't match any content.<br />
+    <b>Requested URL: </b> {{ request_path }}
+    {% endblocktrans %}
 </p>
 {% endblock %}

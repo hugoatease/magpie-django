@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load i18n %}
 {% load bootstrap3 %}
 {% block title %}{{ BRAND_NAME }} - Inscription{% endblock %}
 {% block content %}
@@ -7,14 +8,14 @@
 	<div class="row">
 		<div class="col-md-6 col-md-offset-3">
 			<div class="row page-header">
-					<h1>Inscription<h1>	
+					<h1>{% trans 'Sign up' %}</h1>
 			</div>
 			
 			<div class="row pagination-centered">
 					{% if form.errors %}
 					<div class="alert alert-block alert-warning">
-						<h4>Erreur</h4>
-						<p>L'inscription n'a pas pu être effectuée</p>
+						<h4>{% trans 'Error' %}</h4>
+						<p>{% trans "Sign up couldn't been done with provided information" %}</p>
 					</div>
 					{% endif %}
 
@@ -23,7 +24,7 @@
 						{% csrf_token %}
 						{% bootstrap_form form %}
 						
-						<p><input class="btn btn-primary" type="submit" value="S'inscrire" /></p>
+						<p><input class="btn btn-primary" type="submit" value="{% trans 'Sign up' %}" /></p>
 					</form>
 			</div>
 		</div>

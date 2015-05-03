@@ -1,9 +1,10 @@
 {% extends 'base.html' %}
-{% block title %}{{ BRAND_NAME }} - Gestion du VPN{% endblock %}
+{% load i18n %}
+{% block title %}{{ BRAND_NAME }} - {% trans 'VPN management' %}{% endblock %}
 {% block content %}
 <div class="container">
 	<div class="page-header">
-			<h1>{% block page_header %}Gestion du VPN{% endblock %}</h1>
+			<h1>{% block page_header %}{% trans 'VPN management' %}{% endblock %}</h1>
 	</div>
 	
 	<div class="row">

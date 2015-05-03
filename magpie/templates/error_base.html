@@ -1,16 +1,17 @@
 {% load pipeline %}
+{% load i18n %}
 <html>
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Erreur {% block error_code %}{% endblock %}</title>
+        <title>{% trans 'Error' %} {% block error_code %}{% endblock %}</title>
         {% stylesheet 'magpie' %}
     </head>
     <body>
         <div class="container">
         {% block content %}{% endblock %}
 
-        <a href="/" class="btn btn-info">Revenir au site</a>
+        <a href="/" class="btn btn-info">{% trans 'Back to site' %}</a>
         </div>
     </body>
 </html>

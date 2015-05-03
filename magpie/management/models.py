@@ -14,6 +14,7 @@
 # limitations under the License.
 
 from django.db import models
+from django.utils.translation import ugettext_lazy as _
 from django.contrib.auth.models import User
 
 charlength = 64
@@ -21,8 +22,8 @@ charlength = 64
 class UserConfig(models.Model):
     class Meta:
         app_label = 'management'
-        verbose_name = "Configuration d'accès"
-        verbose_name_plural = "Configurations d'accès"
+        verbose_name = _("Access configuration")
+        verbose_name_plural = _("Access configurations")
         ordering = ['user']
 
     server = models.ForeignKey('servers.Server', related_name="userconfigs")
@@ -38,8 +39,8 @@ class UserConfig(models.Model):
 class BandwidthAct(models.Model):
     class Meta:
         app_label = 'management'
-        verbose_name = "Consommation de BP"
-        verbose_name_plural = "Consommation de BP"
+        verbose_name = _("Bandwidth accounting")
+        verbose_name_plural = _("Bandwidth accountings")
         ordering = ['user', '-begin']
     
     user = models.ForeignKey(User, related_name="bandwithacts")
@@ -54,8 +55,8 @@ class BandwidthAct(models.Model):
 class ConnectionLog(models.Model):
     class Meta:
         app_label = 'management'
-        verbose_name = "Historique de connexion"
-        verbose_name_plural = "Historique de connexions"
+        verbose_name = _("Connection log")
+        verbose_name_plural = _("Connection logs")
         ordering = ['-date']
 
     user = models.ForeignKey(User, related_name="connectionlogs")
@@ -66,8 +67,8 @@ class ConnectionLog(models.Model):
 class UserSettings(models.Model):
     class Meta:
         app_label = 'management'
-        verbose_name = "Configuration utilisateur"
-        verbose_name_plural = "Configurations utilisateur"
+        verbose_name = _("User configuration")
+        verbose_name_plural = _("User configurations")
         ordering = ['user']
 
     user = models.ForeignKey(User, related_name="usersettings")

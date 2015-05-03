@@ -1,3 +1,6 @@
-Vous avez été invité par un utilisateur de {{ BRAND_NAME }} à vous inscrire au service.
+{% load i18n %}
+{% blocktrans %}
+You've been invited by a {{ BRAND_NAME }} user to signup to service.
 
-Vous pouvez accéder à la page d'inscription sur {{ url }} .
+You can reach signup webpage at {{ url }} .
+{% endblocktrans %}

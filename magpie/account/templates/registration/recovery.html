@@ -1,13 +1,14 @@
 {% extends 'base.html' %}
+{% load i18n %}
 {% load bootstrap3 %}
-{% block title %}{{ BRAND_NAME }} - Récupération de compte{% endblock %}
+{% block title %}{{ BRAND_NAME }} - {% trans 'Password recovery' %}{% endblock %}
 {% block content %}
 
 <div class="container">
 	<div class="row">
 		<div class="col-md-4 col-md-offset-4">
 			<div class="row page-header">
-					<h1>Récupération de compte</h1>
+					<h1>{% trans 'Password recovery' %}</h1>
 			</div>
 			
 			{% if success %}

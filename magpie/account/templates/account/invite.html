@@ -1,5 +1,6 @@
+{% load i18n %}
 {% load bootstrap3 %}
-<h3>Invitation</h3>
+<h3>{% trans 'Invite a friend' %}</h3>
 <hr />
 
 <div class="row">
@@ -8,7 +9,7 @@
 			{% csrf_token %}
 			{% bootstrap_form form %}
 			<input type="hidden" name="invitechange" value="1" />
-			<p><input class="btn btn-primary" type="submit" value="Inviter" /></p>
+			<p><input class="btn btn-primary" type="submit" value="{% trans 'Invite' %}" /></p>
 		</form>
 	</div>
 </div>

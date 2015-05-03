@@ -1,15 +1,16 @@
 {% extends 'management/base.html' %}
+{% load i18n %}
 {% load bootstrap3 %}
-{% block page_header %}Gestion des accès{% endblock %}
+{% block page_header %}{% trans 'Access management' %}{% endblock %}
 {% block management %}
 <div class="col-md-9">
 	<table class="table table-striped table-hover">
 		<tr>
-			<th><i class="icon-cloud"></i> Serveur</th>
-			<th>Adresse</th>
-			<th>Mot de passe</th>
-			<th><i class="icon-info-sign"></i> Statut</th>
-			<th><i class="icon-cog"></i> Actions</th>
+			<th><i class="icon-cloud"></i> {% trans 'Server' %}</th>
+			<th>{% trans 'IP address' %}</th>
+			<th>{% trans 'Password' %}</th>
+			<th><i class="icon-info-sign"></i> {% trans 'Status' %}</th>
+			<th><i class="icon-cog"></i> {% trans 'Actions' %}</th>
 		</tr>
 		{% for uconf in userconfigs %}
 		<tr>
@@ -18,26 +19,26 @@
 			<td>{{ uconf.token }}</td>
 			<td>
 				{% if uconf.connected %}
-				<i class="icon-globe"></i> Connecté
+				<i class="icon-globe"></i> {% trans 'Connected' %}
 					{% if uconf.current_origin and uconf.current_date %}
 					<br /><i class="icon-home"></i> {{ uconf.current_origin }}<br />
 					<i class="icon-calendar"></i> {{ uconf.current_date }}
 					{% endif %}
 				{% else %}
-				<i class="icon-off"></i> Non connecté
+				<i class="icon-off"></i> {% trans 'Disconnected' %}
 				{% endif %}
 			</td>
 			<td>
 				<form action="{% url 'management_getconfig' uconf.server.name %}" method="post">
 					{% csrf_token %}
 					<input type="hidden" name="id" value="{{ uconf.id }}" />
-					<input type="submit" class="btn" value="Configuration" />
+					<input type="submit" class="btn" value="{% trans 'Get configuration' %}" />
 				</form>
 				<br />
 				<form action="{% url 'management_access' %}" method="post">
 					{% csrf_token %}
 					<input type="hidden" name="id" value="{{ uconf.id }}" />
-					<input type="submit" class="btn btn-danger" value="Supprimer" />
+					<input type="submit" class="btn btn-danger" value="{% trans 'Delete' %}" />
 				</form>
 			</td>
 		</tr>
@@ -48,10 +49,10 @@
 	<div>
 		<form action="{% url 'management_access' %}" method="post">
 			{% csrf_token %}
-			<legend>Nouvel accès</legend>
+			<legend>{% trans 'New access' %}</legend>
 			{% bootstrap_form form %}
 			<br />
-			<button type="submit" class="btn btn-primary">Ajouter</button>
+			<button type="submit" class="btn btn-primary">{% trans 'Create' %}</button>
 		</form>
 		<br />
 	</div>

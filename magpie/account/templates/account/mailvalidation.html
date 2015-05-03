@@ -1,16 +1,18 @@
 {% extends 'account/base.html' %}
+{% load i18n %}
 {% block account %}
 <div class="container">
 	<div class="row">
 		{% if mail_success %}
 		<div class="alert alert-success">
-			<b>Succcès</b> L'adresse e-mail de votre compte a bien été modifiée.
+			<b>{% trans 'Success' %}</b> {% trans "Your account's email address has been modified" %}.
 		</div>
 		
 		{% else %}
 		<div class="alert alert-warning">
-			<b>Erreur</b> L'adresse e-mail de votre compte n'a pas pu être modifiée, veuillez réessayer la procédure.
+			<b>{% trans 'Error' %}</b> {% trans "Your account's email address couldn't been modified, please try again" %}.
 		</div>
 		{% endif %}
 	</div>
+</div>
 {% endblock %}

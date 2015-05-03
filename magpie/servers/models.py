@@ -14,14 +14,15 @@
 # limitations under the License.
 
 from django.db import models
+from django.utils.translation import ugettext_lazy as _
 from ipaddr import IPNetwork
 
 charlength = 64
 
 class Server(models.Model):
     class Meta:
-        verbose_name = "Serveur"
-        verbose_name_plural = "Serveurs"
+        verbose_name = _("Server")
+        verbose_name_plural = _("Servers")
         ordering = ['display_name']
         
     name = models.CharField(max_length=charlength, unique=True)
@@ -39,8 +40,8 @@ class Server(models.Model):
 
 class Subnet(models.Model):
     class Meta:
-        verbose_name = "Sous-réseau"
-        verbose_name_plural = "Sous-réseaux"
+        verbose_name = _("Subnet")
+        verbose_name_plural = _("Subnets")
         
     server = models.ForeignKey(Server, related_name="subnets")
     
@@ -55,8 +56,8 @@ class Subnet(models.Model):
 
 class Address(models.Model):
     class Meta:
-        verbose_name = "Adresse IP"
-        verbose_name_plural = "Addresses IP"
+        verbose_name = _("IP address")
+        verbose_name_plural = _("IP addresses")
         
     subnet = models.ForeignKey(Subnet, related_name="addresses")
     address = models.GenericIPAddressField(protocol='IPv4')

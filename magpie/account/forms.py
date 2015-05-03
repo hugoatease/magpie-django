@@ -16,6 +16,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
+from django.utils.translation import ugettext_lazy as _
 
 def unique_email(email):
     unique = True
@@ -31,21 +32,21 @@ class VPNProfileForm(forms.ModelForm):
         model = User
         fields = ('first_name', 'last_name')
     
-    first_name = forms.CharField(label="Nom")
-    last_name = forms.CharField(label="Prénom")
+    first_name = forms.CharField(label=_("First name"))
+    last_name = forms.CharField(label=_("Last name"))
 
 class VPNEmailChangeForm(forms.ModelForm):
     class Meta:
         model = User
         fields = ['email']
         
-    email = forms.EmailField(label="Adresse e-mail")
+    email = forms.EmailField(label=_("Email address"))
     
     def clean_email(self):
         data = self.cleaned_data['email']
         
         if not unique_email(data):
-            raise forms.ValidationError("L'addresse e-mail est déjà associée à un utilisateur")
+            raise forms.ValidationError(_("Provided email address is already matching an user"))
         
         return data
 
@@ -54,13 +55,13 @@ class VPNBeginSignupForm(forms.ModelForm):
         model = User
         fields = ['email']
     
-    email = forms.EmailField(label="Adresse e-mail")
+    email = forms.EmailField(label=_("Email address"))
     
     def clean_email(self):
         data = self.cleaned_data['email']
         
         if not unique_email(data):
-            raise forms.ValidationError("L'addresse e-mail est déjà associée à un utilisateur")
+            raise forms.ValidationError(_("Provided email address is already matching an user"))
         
         return data
 
@@ -69,19 +70,19 @@ class VPNSignupForm(UserCreationForm):
         model = User
         fields = ('username', 'password1', 'password2', 'first_name', 'last_name')
     
-    first_name = forms.CharField(label="Nom")
-    last_name = forms.CharField(label="Prénom")
+    first_name = forms.CharField(label=_("First name"))
+    last_name = forms.CharField(label=_("Last name"))
 
 class PasswordRecoveryForm(forms.ModelForm):
     error_messages = {
-        'unknown_user' : "L'adresse e-mail ne correspond à aucun utilisateur inscrit."
+        'unknown_user': _("Provided email address doesn't match any user")
     }
     
     class Meta:
         model = User
         fields = ['email']
         
-    email = forms.EmailField(label="Adresse e-mail")
+    email = forms.EmailField(label=_("Email address"))
     
     def clean_email(self):
         data = self.cleaned_data['email']
@@ -95,12 +96,12 @@ class PasswordRecoveryForm(forms.ModelForm):
         return data
 
 class VPNInviteForm(forms.Form):
-    email = forms.EmailField(label="Adresse e-mail")
+    email = forms.EmailField(label=_("Email address"))
     
     def clean_email(self):
         data = self.cleaned_data['email']
         
         if not unique_email(data):
-            raise forms.ValidationError("L'addresse e-mail est déjà associée à un utilisateur")
+            raise forms.ValidationError(_("Provided email address is already matching an user"))
         
         return data

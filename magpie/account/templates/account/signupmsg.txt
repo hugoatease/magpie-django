@@ -1,4 +1,7 @@
-Vous avez demandé à vous inscrire au service de VPN {{ BRAND_NAME }}.
-Ce message permet de vérifier votre adresse e-mail.
+{% load i18n %}
+{% blocktrans %}
+You've requested sign up to {{ BRAND_NAME }} VPN service.
+This email message allows us to check your email address authenticity.
 
-Complétez votre inscription à l'adresse : {{ url }} .
+Please complete signup process at {{ url }} .
+{% endblocktrans %}

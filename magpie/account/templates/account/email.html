@@ -1,5 +1,6 @@
+{% load i18n %}
 {% load bootstrap3 %}
-<h3>Changement d'addresse e-mail</h3>
+<h3>{% trans 'Email address change' %}</h3>
 <hr />
 
 <div class="row">
@@ -8,7 +9,7 @@
 			{% csrf_token %}
 			{% bootstrap_form emailform %}
 			<input type="hidden" name="emailchange" value="1" />
-			<input type="submit" class="btn btn-primary" value="Modifier" />
+			<input type="submit" class="btn btn-primary" value="{% trans 'Change email' %}" />
 		</form>
 	</div>
 </div>

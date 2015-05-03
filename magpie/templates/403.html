@@ -1,13 +1,15 @@
 {% extends 'error_base.html' %}
+{% load i18n %}
 {% block error_code %}403{% endblock %}
 {% block content %}
 <div class="page-header">
-    <h1>Erreur 403 <small>Accès interdit</small></h1>
+    <h1>403 <small>{% trans "Access forbidden" %}</small></h1>
 </div>
 
 <p>
-    La ressource à laquelle vous souhaiter accéder est interdite.<br />
-    Il est possible que vous n'ayez pas les droits pour effectuer
-    cette opération, ou que vous ayez atteint un espace réservé.
+    {% blocktrans %}
+    You haven't got the required rights to access this URL, or
+    this resource is private.
+    {% endblocktrans %}
 </p>
 {% endblock %}

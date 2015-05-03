@@ -1,11 +1,14 @@
 {% extends 'error_base.html' %}
+{% load i18n %}
 {% block error_code %}500{% endblock %}
 {% block content %}
 <div class="page-header">
-    <h1>Erreur 500 <small>Erreur interne serveur</small></h1>
+    <h1>500 <small>{% trans "Internal server error" %}</small></h1>
 </div>
 
 <p>
-    Une erreur non gérée s'est produite dans le site lors de votre requête.
+    {% blocktrans %}
+    An unexpected error has been encountered in request processing
+    {% endblocktrans %}
 </p>
 {% endblock %}

@@ -1,15 +1,14 @@
 {% extends 'error_base.html' %}
+{% load i18n %}
 {% block error_code %}400{% endblock %}
 {% block content %}
 <div class="page-header">
-    <h1>Erreur 400 <small>Requête invalide</small></h1>
+    <h1>400 <small>{% trans "Bad request" %}</small></h1>
 </div>
 
 <p>
-    La requête que votre navigateur a effectué est invalide.<br />
-    Ce problème pouvant survenir suite à une erreur de réseau,
-    vous pouvez essayer de recharger la page.<br />
-    Un navigateur trop ancien peut également être à l'origine du problème,
-    vous devriez dans ce cas le mettre à jour.
+    {% blocktrans %}
+    Your browser sent an invalid request.
+    {% endblocktrans %}
 </p>
 {% endblock %}

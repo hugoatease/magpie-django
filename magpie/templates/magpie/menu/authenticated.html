@@ -1,15 +1,16 @@
+{% load i18n %}
 <ul class="nav navbar-nav">
-	<li><a href="{% url 'management_access' %}">Accès</a></li>
-	<li><a href="{% url 'management_bandwidth' %}">Traffic</a></li>
-	<li><a href="{% url 'management_logs' %}">Historique</a></li>
-	<li><a href="{% url 'servers_servers' %}">Serveurs</a></li>
+	<li><a href="{% url 'management_access' %}">{% trans "VPN access" %}</a></li>
+	<li><a href="{% url 'management_bandwidth' %}">{% trans "Bandwidth" %}</a></li>
+	<li><a href="{% url 'management_logs' %}">{% trans "History" %}</a></li>
+	<li><a href="{% url 'servers_servers' %}">{% trans "Servers" %}</a></li>
 </ul>
 
 <ul class="nav navbar-nav navbar-right">
 	{% if VPN_CONNECTED %}
 	<li class="dropdown">
 	    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-	    <i class="icon-globe"></i> {{ VPN_CONNECTED }} connexion(s) active(s)<b class="caret"></b></a>
+	    <i class="icon-globe"></i> {{ VPN_CONNECTED }} {% trans "active connections" %}<b class="caret"></b></a>
 	    <ul class="dropdown-menu">
 	    	{% for access in VPN_ACTIVE %}
 			<li><a href="{% url 'management_access' %}">
@@ -25,8 +26,8 @@
 	    </ul>
 	</li>
 	{% else %}
-	<li><a href="{% url 'management_access' %}"><i class="icon-off"></i> Non connecté au VPN</a></li>
+	<li><a href="{% url 'management_access' %}"><i class="icon-off"></i> {% trans "VPN disconnected" %}</a></li>
 	{% endif %}
-	<li><a href="{% url 'account_account' %}">Mon compte</a></li>
-	<li><a href="{% url 'django.contrib.auth.views.logout' %}">Déconnexion</a></li>
+	<li><a href="{% url 'account_account' %}">{% trans 'Account' %}</a></li>
+	<li><a href="{% url 'django.contrib.auth.views.logout' %}">{% trans "Log out" %}</a></li>
 </ul>
