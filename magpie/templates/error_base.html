@@ -1,9 +1,10 @@
-{% load assets %}
+{% load pipeline %}
 <html>
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Erreur {% block error_code %}{% endblock %}</title>
+        {% stylesheet 'magpie' %}
     </head>
     <body>
         <div class="container">
@@ -11,9 +12,5 @@
 
         <a href="/" class="btn btn-info">Revenir au site</a>
         </div>
-
-        {% assets 'magpie_css' %}
-        <link href="{{ ASSET_URL }}" rel="stylesheet">
-        {% endassets %}
     </body>
 </html>
