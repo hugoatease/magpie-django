@@ -1,0 +1,573 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# FULL NAME <EMAIL@ADDRESS>, 2015.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-05-03 22:47+0200\n"
+"PO-Revision-Date: 2015-05-03 23:24+0100\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Poedit 1.7.5\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+
+#: magpie/account/forms.py:35 magpie/account/forms.py:73
+msgid "First name"
+msgstr "Prénom"
+
+#: magpie/account/forms.py:36 magpie/account/forms.py:74
+msgid "Last name"
+msgstr "Nom"
+
+#: magpie/account/forms.py:43 magpie/account/forms.py:58
+#: magpie/account/forms.py:85 magpie/account/forms.py:99
+msgid "Email address"
+msgstr "Adresse email"
+
+#: magpie/account/forms.py:49 magpie/account/forms.py:64
+#: magpie/account/forms.py:105
+msgid "Provided email address is already matching an user"
+msgstr "L'adresse email spécifiée est déjà associée à un utilisateur"
+
+#: magpie/account/forms.py:78
+msgid "Provided email address doesn't match any user"
+msgstr "Aucun utilisateur ne correspond à l'adresse email spécifiée"
+
+#: magpie/account/models.py:24
+msgid "Invitation"
+msgstr "Invitation"
+
+#: magpie/account/models.py:25
+msgid "Invitations"
+msgstr "Invitations"
+
+#: magpie/account/models.py:34
+msgid "Email validation"
+msgstr "Validation email"
+
+#: magpie/account/models.py:35
+msgid "Email validations"
+msgstr "Validations email"
+
+#: magpie/account/templates/account/base.html:3
+#: magpie/account/templates/account/base.html:7
+#: magpie/templates/magpie/menu/authenticated.html:31
+msgid "Account"
+msgstr "Compte"
+
+#: magpie/account/templates/account/base.html:16
+#: magpie/account/templates/account/mailvalidation.html:8
+#: magpie/account/templates/registration/begin.html:17
+#: magpie/account/templates/registration/recovery_begin.html:17
+msgid "Success"
+msgstr "Succès"
+
+#: magpie/account/templates/account/base.html:16
+msgid "Requested modifications have been done successfully"
+msgstr "Les modifications ont bien été prises en compte"
+
+#: magpie/account/templates/account/email.html:3
+msgid "Email address change"
+msgstr "Changement d'adresse email"
+
+#: magpie/account/templates/account/email.html:12
+msgid "Change email"
+msgstr "Changer l'adresse"
+
+#: magpie/account/templates/account/invite.html:3
+msgid "Invite a friend"
+msgstr "Inviter un ami"
+
+#: magpie/account/templates/account/invite.html:12
+msgid "Invite"
+msgstr "Inviter"
+
+#: magpie/account/templates/account/invitemsg.txt:2
+#, python-format
+msgid ""
+"\n"
+"You've been invited by a %(BRAND_NAME)s user to signup to service.\n"
+"\n"
+"You can reach signup webpage at %(url)s .\n"
+msgstr ""
+"\n"
+"Vous avez été invité par un utilisateur de %(BRAND_NAME)s à rejoindre le service.\n"
+"\n"
+"La page d'inscription est accessible à l'adresse suivante:  %(url)s .\n"
+
+#: magpie/account/templates/account/mailvalidation.html:8
+msgid "Your account's email address has been modified"
+msgstr "L'adresse email de votre compte a bien été modifiée"
+
+#: magpie/account/templates/account/mailvalidation.html:13
+#: magpie/account/templates/registration/begin.html:30
+#: magpie/account/templates/registration/login.html:17
+#: magpie/account/templates/registration/recovery_begin.html:30
+#: magpie/account/templates/registration/signup.html:17
+#: magpie/templates/error_base.html:7
+msgid "Error"
+msgstr "Erreur"
+
+#: magpie/account/templates/account/mailvalidation.html:13
+msgid "Your account's email address couldn't been modified, please try again"
+msgstr "L'adresse email de votre compte n'a pas pu être modifiée, merci de réessayer"
+
+#: magpie/account/templates/account/mailvalidation.txt:2
+#, python-format
+msgid ""
+"\n"
+"You've asked to change email address associated with your %(BRAND_NAME)s account.\n"
+"Your account's email address will be change to : %(email)s .\n"
+"\n"
+"To finish this process, please follow this link : %(url)s .\n"
+msgstr ""
+"\n"
+"Vous avez demandé la modification de l'adresse email associée à votre compte %(BRAND_NAME)s .\n"
+"Celle-ci va être changée par l'adresse suivante: %(email)s .\n"
+"\n"
+"Pour terminer le processus, merci de suivre ce lien : %(url)s .\n"
+
+#: magpie/account/templates/account/password.html:3
+msgid "Password change"
+msgstr "Changement de mot de passse"
+
+#: magpie/account/templates/account/password.html:12
+msgid "Change password"
+msgstr "Modifier"
+
+#: magpie/account/templates/account/profile.html:3
+msgid "User information"
+msgstr "Informations utilisateur"
+
+#: magpie/account/templates/account/profile.html:12
+msgid "Change information"
+msgstr "Modifier"
+
+#: magpie/account/templates/account/signupmsg.txt:2
+#, python-format
+msgid ""
+"\n"
+"You've requested sign up to %(BRAND_NAME)s VPN service.\n"
+"This email message allows us to check your email address authenticity.\n"
+"\n"
+"Please complete signup process at %(url)s .\n"
+msgstr ""
+"\n"
+"Vous avez effectué une demande d'inscription au service %(BRAND_NAME)s.\n"
+"Ce message permet de confirmer la validité de votre adresse email.\n"
+"\n"
+"Vous pouvez terminer votre inscription à l'adresse %(url)s .\n"
+
+#: magpie/account/templates/registration/begin.html:4
+#: magpie/account/templates/registration/begin.html:11
+#: magpie/account/templates/registration/begin.html:39
+#: magpie/account/templates/registration/login.html:29
+#: magpie/account/templates/registration/signup.html:11
+#: magpie/account/templates/registration/signup.html:27
+#: magpie/templates/magpie/menu/guest.html:3
+msgid "Sign up"
+msgstr "Inscription"
+
+#: magpie/account/templates/registration/begin.html:18
+msgid ""
+"\n"
+"\t\t\t\t\t\t<p>An email containing a signup link has been sent to your address.</p>\n"
+"\t\t\t\t\t\t<p>Don't forget to check your spam folder if it seems you didn't received it.</p>\n"
+"\t\t\t\t\t\t"
+msgstr ""
+"\n"
+"\t\t\t\t\t\t<p>Un message contenant un lien d'inscription a été envoyé à votre adresse email</p>\n"
+"\t\t\t\t\t\t<p>Si vous n'avez reçu aucun message, verifiez votre dossier Spam avant de recommencer la procédure.</p>\n"
+"\t\t\t\t\t\t"
+
+#: magpie/account/templates/registration/begin.html:31
+msgid "Couldn't sign up with given information"
+msgstr "Informations d'inscription invalides"
+
+#: magpie/account/templates/registration/login.html:4
+#: magpie/account/templates/registration/login.html:11
+#: magpie/account/templates/registration/login.html:28
+msgid "Log in"
+msgstr "Connexion"
+
+#: magpie/account/templates/registration/login.html:18
+msgid "Invalid credentials"
+msgstr "Nom d'utilisateur ou mot de passe invalide"
+
+#: magpie/account/templates/registration/login.html:25
+#: magpie/account/templates/registration/recovery.html:4
+#: magpie/account/templates/registration/recovery.html:11
+#: magpie/account/templates/registration/recovery_begin.html:4
+#: magpie/account/templates/registration/recovery_begin.html:11
+msgid "Password recovery"
+msgstr "Récupération de mot de passe"
+
+#: magpie/account/templates/registration/recovery_begin.html:18
+msgid ""
+"\n"
+"\t\t\t\t\t\t<p>An email containing the recovery link has been sent to your address.</p>\n"
+"\t\t\t\t\t\t<p>Don't forget to check your spam folder if it seems you didn't received it.</p>\n"
+"\t\t\t\t\t\t"
+msgstr ""
+"\n"
+"\t\t\t\t\t\t<p>Un message contenant le lien de récupération a été envoyé à votre adresse email.</p>\n"
+"\t\t\t\t\t\t<p>Si vous n'avez reçu aucun message, verifiez votre dossier Spam avant de recommencer la procédure.</p>\n"
+"\t\t\t\t\t\t"
+
+#: magpie/account/templates/registration/recovery_begin.html:31
+msgid "Account recovery couldn't been done"
+msgstr "La récupération de compte a échouée"
+
+#: magpie/account/templates/registration/recovery_begin.html:39
+msgid "Send recovery mail"
+msgstr "Envoyer"
+
+#: magpie/account/templates/registration/recoverymsg.txt:2
+#, python-format
+msgid ""
+"\n"
+"You have requested password recovery for your %(BRAND_NAME)s account.\n"
+"To finish this process and set new passwords, please follow this link: %(url)s .\n"
+msgstr ""
+"\n"
+"Vous avez demandé la réinitialisation du mot de passe de votre compte %(BRAND_NAME)s.\n"
+"Suivez ce lien pour finir la procédure et définir un nouveau mot de passe: %(url)s .\n"
+
+#: magpie/account/templates/registration/signup.html:18
+msgid "Sign up couldn't been done with provided information"
+msgstr "Inscription impossible avec les informations fournies"
+
+#: magpie/management/models.py:25
+msgid "Access configuration"
+msgstr "Configuration d'accès"
+
+#: magpie/management/models.py:26
+msgid "Access configurations"
+msgstr "Configurations d'accès"
+
+#: magpie/management/models.py:42
+msgid "Bandwidth accounting"
+msgstr "Consommation bande passante"
+
+#: magpie/management/models.py:43
+msgid "Bandwidth accountings"
+msgstr "Consommations de bande passante"
+
+#: magpie/management/models.py:58
+msgid "Connection log"
+msgstr "Historique de connexion"
+
+#: magpie/management/models.py:59
+#: magpie/management/templates/management/logs.html:3
+msgid "Connection logs"
+msgstr "Historiques de connexion"
+
+#: magpie/management/models.py:70
+msgid "User configuration"
+msgstr "Configuration utilisateur"
+
+#: magpie/management/models.py:71
+msgid "User configurations"
+msgstr "Configurations utilisateur"
+
+#: magpie/management/templates/management/access.html:4
+msgid "Access management"
+msgstr "Gestion des accès"
+
+#: magpie/management/templates/management/access.html:9
+#: magpie/management/templates/management/bandwidth.html:10
+#: magpie/management/templates/management/logs.html:9
+#: magpie/servers/models.py:24
+msgid "Server"
+msgstr "Serveur"
+
+#: magpie/management/templates/management/access.html:10
+#: magpie/servers/models.py:59
+msgid "IP address"
+msgstr "Addresse IP"
+
+#: magpie/management/templates/management/access.html:11
+#: magpie/templates/magpie/menu/guest.html:13
+msgid "Password"
+msgstr "Mot de passe"
+
+#: magpie/management/templates/management/access.html:12
+msgid "Status"
+msgstr "Statut"
+
+#: magpie/management/templates/management/access.html:13
+msgid "Actions"
+msgstr "Actions"
+
+#: magpie/management/templates/management/access.html:22
+msgid "Connected"
+msgstr "Connecté"
+
+#: magpie/management/templates/management/access.html:28
+msgid "Disconnected"
+msgstr "Déconnecté"
+
+#: magpie/management/templates/management/access.html:35
+msgid "Get configuration"
+msgstr "Configuration"
+
+#: magpie/management/templates/management/access.html:41
+msgid "Delete"
+msgstr "Supprimer"
+
+#: magpie/management/templates/management/access.html:52
+msgid "New access"
+msgstr "Nouvel accès"
+
+#: magpie/management/templates/management/access.html:55
+msgid "Create"
+msgstr "Créer"
+
+#: magpie/management/templates/management/bandwidth.html:4
+msgid "Bandwidth usage"
+msgstr "Utilisation de bande passante"
+
+#: magpie/management/templates/management/bandwidth.html:9
+#: magpie/management/templates/management/logs.html:8
+msgid "Date"
+msgstr "Date"
+
+#: magpie/management/templates/management/bandwidth.html:11
+msgid "Received (MB)"
+msgstr "Reçu (Mo)"
+
+#: magpie/management/templates/management/bandwidth.html:12
+msgid "Sent (MB)"
+msgstr "Envoyé (Mo)"
+
+#: magpie/management/templates/management/bandwidth.html:27
+msgid "Current month usage"
+msgstr "Consommation du mois"
+
+#: magpie/management/templates/management/bandwidth.html:28
+msgid "MB transfered this month"
+msgstr "Mo transférés ce mois-ci"
+
+#: magpie/management/templates/management/base.html:3
+#: magpie/management/templates/management/base.html:7
+msgid "VPN management"
+msgstr "Gestion du VPN"
+
+#: magpie/management/templates/management/logs.html:10
+msgid "Origin"
+msgstr "Origine"
+
+#: magpie/management/templates/management/logs.html:25
+msgid "Logging opt out"
+msgstr "Désactivation de l'historique"
+
+#: magpie/management/templates/management/logs.html:26
+#: magpie/management/templates/management/logs.html:38
+msgid ""
+"\n"
+"\t\t<p>Connection logs allows you to check that no unauthorized access has been done using your account.</p>\n"
+"\t\t<p>To toggle logging, use the option below.</p>\n"
+"\t\t"
+msgstr ""
+"\n"
+"\t\t<p>L'historique de connexion vous permet de vérifier qu'aucune intrusion n'a lieu sur votre compte.</p>\n"
+"\t\t<p>Utilisez l'option suivante pour activer ou désactiver l'enregistrement de l'historique.</p>\n"
+"\t\t"
+
+#: magpie/management/templates/management/logs.html:34
+msgid "Disable"
+msgstr "Désactiver"
+
+#: magpie/management/templates/management/logs.html:37
+msgid "Logging opt in"
+msgstr "Activation de l'historique"
+
+#: magpie/management/templates/management/logs.html:46
+msgid "Enable"
+msgstr "Activer"
+
+#: magpie/management/templates/management/logs.html:51
+msgid "Log clearing"
+msgstr "Suppression de l'historique"
+
+#: magpie/management/templates/management/logs.html:52
+msgid "You can delete all previous logs registered on your account."
+msgstr "Vous pouvez supprimer l'historique de connection associé à votre compte"
+
+#: magpie/management/templates/management/logs.html:57
+msgid "Clear logs"
+msgstr "Effacer"
+
+#: magpie/servers/models.py:25 magpie/servers/templates/servers/base.html:3
+#: magpie/servers/templates/servers/base.html:7
+#: magpie/servers/templates/servers/base.html:13
+#: magpie/templates/magpie/menu/authenticated.html:6
+msgid "Servers"
+msgstr "Serveurs"
+
+#: magpie/servers/models.py:43
+msgid "Subnet"
+msgstr "Sous-réseau"
+
+#: magpie/servers/models.py:44
+msgid "Subnets"
+msgstr "Sous-réseaux"
+
+#: magpie/servers/models.py:60
+msgid "IP addresses"
+msgstr "Addresses IP"
+
+#: magpie/servers/templates/servers/server.html:10
+msgid "Name"
+msgstr "Nom"
+
+#: magpie/servers/templates/servers/server.html:14
+msgid "Configuration"
+msgstr "Configuration"
+
+#: magpie/servers/templates/servers/server.html:15
+#: magpie/servers/templates/servers/server.html:19
+msgid "Download"
+msgstr "Télécharger"
+
+#: magpie/servers/templates/servers/server.html:18
+msgid "Certification authority"
+msgstr "Autorité de certification"
+
+#: magpie/servers/templates/servers/server.html:22
+msgid "Address"
+msgstr "Adresse"
+
+#: magpie/servers/templates/servers/server.html:26
+msgid "Protocol"
+msgstr "Protocole"
+
+#: magpie/servers/templates/servers/server.html:30
+msgid "Port"
+msgstr "Port"
+
+#: magpie/servers/templates/servers/server.html:34
+msgid "Tunnel type"
+msgstr "Type de tunnel"
+
+#: magpie/servers/templates/servers/server.html:38
+msgid "Cipher type"
+msgstr "Type de chiffrage"
+
+#: magpie/servers/templates/servers/server.html:47
+msgid "Network"
+msgstr "Réseau"
+
+#: magpie/servers/templates/servers/server.html:48
+msgid "Remaining addresses"
+msgstr "Addresses restantes"
+
+#: magpie/templates/400.html:6
+msgid "Bad request"
+msgstr "Requête invalide"
+
+#: magpie/templates/400.html:10
+msgid ""
+"\n"
+"    Your browser sent an invalid request.\n"
+"    "
+msgstr ""
+"\n"
+"    Votre navigateur a envoyé une requête invalide.\n"
+"    "
+
+#: magpie/templates/403.html:6
+msgid "Access forbidden"
+msgstr "Accès interdit"
+
+#: magpie/templates/403.html:10
+msgid ""
+"\n"
+"    You haven't got the required rights to access this URL, or\n"
+"    this resource is private.\n"
+"    "
+msgstr ""
+"\n"
+"    Vous n'avez pas les permissions nécessaires pour accéder à cette URL, ou\n"
+"    cette resource est privée.\n"
+"    "
+
+#: magpie/templates/404.html:6
+msgid "Page not found"
+msgstr "Page non trouvée"
+
+#: magpie/templates/404.html:10
+#, python-format
+msgid ""
+"\n"
+"    The requested URL doesn't match any content.<br />\n"
+"    <b>Requested URL: </b> %(request_path)s\n"
+"    "
+msgstr ""
+"\n"
+"    L'URL demandée ne correspond a aucun contenu.<br />\n"
+"    <b>URL: </b> %(request_path)s\n"
+"    "
+
+#: magpie/templates/500.html:6
+msgid "Internal server error"
+msgstr "Erreur interne serveur"
+
+#: magpie/templates/500.html:10
+msgid ""
+"\n"
+"    An unexpected error has been encountered in request processing\n"
+"    "
+msgstr ""
+"\n"
+"    Une erreur innatendue est survenue lors de l'exécution de votre requête\n"
+"    "
+
+#: magpie/templates/error_base.html:14
+msgid "Back to site"
+msgstr "Retour au site"
+
+#: magpie/templates/magpie/footer.html:8
+msgid "Magpie is free software released under the Apache 2.0 license"
+msgstr "Magpie est un logiciel libre sous licence Apache 2.0"
+
+#: magpie/templates/magpie/menu/authenticated.html:3
+msgid "VPN access"
+msgstr "Accès VPN"
+
+#: magpie/templates/magpie/menu/authenticated.html:4
+msgid "Bandwidth"
+msgstr "Traffic"
+
+#: magpie/templates/magpie/menu/authenticated.html:5
+msgid "History"
+msgstr "Historique"
+
+#: magpie/templates/magpie/menu/authenticated.html:13
+msgid "active connections"
+msgstr "connections actives"
+
+#: magpie/templates/magpie/menu/authenticated.html:29
+msgid "VPN disconnected"
+msgstr "Déconnecté du VPN"
+
+#: magpie/templates/magpie/menu/authenticated.html:32
+msgid "Log out"
+msgstr "Déconnexion"
+
+#: magpie/templates/magpie/menu/guest.html:10
+msgid "Username"
+msgstr "Nom d'utilisateur"
+
+#: magpie/templates/magpie/menu/guest.html:15
+msgid "Login"
+msgstr "Connexion"
+

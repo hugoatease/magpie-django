@@ -22,9 +22,10 @@ SERVER_EMAIL = config.get('magpie', 'server_email')
 # Localization settings
 TIME_ZONE = config.get('intl', 'timezone')
 LANGUAGE_CODE = config.get('intl', 'language')
-USE_I18N = False
+USE_I18N = True
 USE_L10N = True
 USE_TZ = True
+LOCALE_PATHS = (BASE_DIR + '/translations',)
 
 # Authentication settings
 LOGIN_URL = "/account/login"
