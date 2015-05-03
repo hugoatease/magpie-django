@@ -107,32 +107,6 @@ def account(request):
                    'success' : success,
                    'success_message' : success_message})
 
-@login_required
-def invite(request):
-    context = RequestContext(request)
-    
-    form = VPNInviteForm()
-    success = False
-    url = None
-    
-    if request.method == 'POST':
-        form = VPNInviteForm(request.POST)
-        if form.is_valid():
-            token = get_random_string(length=50)
-            
-            invite = Invite(token=token, email=form.cleaned_data['email'])
-            invite.save()
-            
-            url = request.build_absolute_uri(reverse('account_signup', args=[token]))
-            
-            message = render_to_string("account/invitemsg.txt", {'url' : url}, context_instance=context)
-            
-            send_branded_email("Invitation", message, form.cleaned_data['email'], context)
-            
-            success = True
-    
-    return render(request, "account/invite.html", {'form' : form, 'success' : success, 'signuplink' : url})
-
 def signup(request, token):
     try:
         invite = Invite.objects.get(token=token)
