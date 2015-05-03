@@ -1,0 +1,36 @@
+{% extends 'management/base.html' %}
+{% load convertors %}
+{% block page_header %}Visualisation du traffic{% endblock %}
+{% block management %}
+<div class="col-md-8">
+	<table class="table table-striped table-hover">
+		<tr>
+			<th><i class="icon-calendar"></i> Date</th>
+			<th><i class="icon-cloud"></i> Serveur</th>
+			<th><i class="icon-download"></i> Reçu (Mo)</th>	
+			<th><i class="icon-upload"></i> Envoyé (Mo)</th>
+		</tr>
+		{% for bwact in bwacts %}
+		<tr>
+			<td>{{ bwact.begin }} - {{ bwact.end }}</td>
+			<td><a href="{% url 'servers_server' bwact.server.name %}">{{ bwact.server.display_name }}</td>
+			<td>{{ bwact.bytes_received|megabytes }}</td>
+			<td>{{ bwact.bytes_sent|megabytes }}</td>
+		</tr>
+		{% endfor %}
+	</table>
+</div>
+
+<div class="col-md-4">
+	<div class="alert alert-warning">
+		<p><b>Traffic du mois</b></p>
+		<p><b>{{ traffic|megabytes }}</b> Mo consommés ce mois-ci.</p>
+	</div>
+	<div class="alert alert-info">
+		<p><b>Mesure de la bande passante consommée</b></p>
+		<p>Les mesures de traffic se font par période d'un mois pour chaque serveur que vous utilisez.</p>
+		<p>Cette période commence au moment de votre première connexion du mois sur un des serveurs,
+			et se termine un mois après.</p>
+	</div>
+</div>
+{% endblock %}

@@ -1,0 +1,58 @@
+{% extends 'servers/base.html' %}
+{% block servers %}
+<h2>{{ server.display_name }}</h2>
+
+<div class="row">
+	<div class="col-md-7">
+		<table class="table table-bordered">
+			<tr>
+				<th>Nom</th>
+				<td>{{ server.name }}</td>
+			</tr>
+			<tr>
+				<th>Configuration</th>
+				<td><a class="btn btn-primary btn-small" href="{% url 'servers_config' server.name %}">Télécharger</a></td>
+			</tr>
+			<tr>
+				<th>Autorité de certification</th>
+				<td><a class="btn btn-primary btn-small" href="{% url 'servers_authority' server.name %}">Télécharger</a></td>
+			</tr>
+			<tr>
+				<th>Addresse</th>
+				<td>{{ server.address }}</td>
+			</tr>
+			<tr>
+				<th>Protocole</th>
+				<td>{{ server.protocol }}</td>
+			</tr>
+			<tr>
+				<th>Port</th>
+				<td>{{ server.port }}</td>
+			</tr>
+			<tr>
+				<th>Type de tunnel</th>
+				<td>{{ server.type }}</td>
+			</tr>
+			<tr>
+				<th>Type de chiffrage</th>
+				<td>{{ server.cipher }}</td>
+			</tr>
+		</table>
+	</div>
+	
+	<div class="col-md-5">
+		<table class="table table-bordered">
+			<tr>
+				<th>Réseau</th>
+				<th>Addresses disponibles</th>
+			</tr>
+			{% for network in networks %}
+			<tr>
+				<td>{{ network.subnet }}</td>
+				<td>{{ network.available }}</td>
+			</tr>
+			{% endfor %}
+		</table>
+	</div>
+</div>
+{% endblock %}

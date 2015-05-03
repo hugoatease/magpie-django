@@ -1,0 +1,33 @@
+<ul class="nav navbar-nav">
+	<li><a href="{% url 'management_access' %}">Accès</a></li>
+	<li><a href="{% url 'management_bandwidth' %}">Traffic</a></li>
+	<li><a href="{% url 'management_logs' %}">Historique</a></li>
+	<li><a href="{% url 'servers_servers' %}">Serveurs</a></li>
+</ul>
+
+<ul class="nav navbar-nav navbar-right">
+	{% if VPN_CONNECTED %}
+	<li class="dropdown">
+	    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+	    <i class="icon-globe"></i> {{ VPN_CONNECTED }} connexion(s) active(s)<b class="caret"></b></a>
+	    <ul class="dropdown-menu">
+	    	{% for access in VPN_ACTIVE %}
+			<li><a href="{% url 'management_access' %}">
+				<i class="icon-cloud"></i> {{ access.server.display_name }}<br />
+				{% if access.current_origin and access.current_date %}
+				<span class="text-muted">
+					<i class="icon-home"></i> {{ access.current_origin }}<br />
+					<i class="icon-calendar"></i> {{ access.current_date }}
+				</span>
+				{% endif %}
+			</a></li>
+			{% endfor %}
+	    </ul>
+	</li>
+	{% else %}
+	<li><a href="{% url 'management_access' %}"><i class="icon-off"></i> Non connecté au VPN</a></li>
+	{% endif %}
+	<li><a href="{% url 'account_account' %}">Mon compte</a></li>
+	<li><a href="{% url 'account_invite' %}">Invitations</a></li>
+	<li><a href="{% url 'django.contrib.auth.views.logout' %}">Déconnexion</a></li>
+</ul>

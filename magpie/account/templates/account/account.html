@@ -1,0 +1,11 @@
+{% extends 'account/base.html' %}
+{% block account %}
+<div class="col-md-5">
+	{% include 'account/profile.html' %}
+</div>
+
+<div class="col-md-5 col-md-offset-1">
+	{% include 'account/email.html' %}
+	{% include 'account/password.html' %}
+</div>
+{% endblock %}

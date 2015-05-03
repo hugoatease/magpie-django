@@ -1,0 +1,5 @@
+Vous avez demandé le changement de l'adresse e-mail associée à votre compte {{ BRAND_NAME }}. 
+
+La nouvelle adresse associée à votre compte sera : {{ email }}
+
+Pour procéder au changement, suivez l'adresse  : {{ url }} .

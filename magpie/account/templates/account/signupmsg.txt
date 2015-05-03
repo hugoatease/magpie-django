@@ -1,0 +1,4 @@
+Vous avez demandé à vous inscrire au service de VPN {{ BRAND_NAME }}.
+Ce message permet de vérifier votre adresse e-mail.
+
+Complétez votre inscription à l'adresse : {{ url }} .

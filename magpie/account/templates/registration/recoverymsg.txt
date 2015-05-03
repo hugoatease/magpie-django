@@ -1,0 +1,3 @@
+Vous avez demandé la récupération du mot de passe associé à votre compte {{ BRAND_NAME }}. 
+
+Pour procéder à la récupération de compte, suivez ce lien  : {{ url }} .

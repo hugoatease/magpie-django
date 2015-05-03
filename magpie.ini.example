@@ -1,0 +1,19 @@
+[magpie]
+brand = Magpie
+debug = false
+secret = change_this
+server_email = magpie@example.com
+
+[database]
+engine = postgresql_psycopg2
+name = magpie
+user = magpie
+password = magpie
+
+[static]
+root = static/
+url = /static/
+
+[intl]
+timezone = Europe/Paris
+language = fr-fr

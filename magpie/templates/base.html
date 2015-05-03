@@ -1,0 +1,47 @@
+{% load assets %}
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{{ BRAND_NAME }}{% endblock %}</title>
+  </head>
+
+  <body>
+  	<nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+  		<div class="navbar-header">
+  			    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+			      <span class="sr-only">Toggle navigation</span>
+			      <span class="icon-bar"></span>
+			      <span class="icon-bar"></span>
+			      <span class="icon-bar"></span>
+			    </button>
+  			<a class="navbar-brand" href="/">{{ BRAND_NAME }}</a>
+  		</div>
+  		
+  		<div class="collapse navbar-collapse navbar-ex1-collapse">
+
+		{% if not user.is_authenticated %}
+			{% include 'magpie/menu/guest.html' %}
+		{% else %}
+			{% include 'magpie/menu/authenticated.html' %}
+		{% endif %}
+		
+		</div>
+		
+	</nav>
+
+  	{% block content %}{% endblock %}
+  	
+  	{% include 'magpie/footer.html' %}
+
+    {% assets 'magpie_css' %}
+    <link href="{{ ASSET_URL }}" rel="stylesheet">
+    {% endassets %}
+
+    {% block additional_css %}{% endblock %}
+
+    {% assets 'magpie_js' %}
+  	<script src="{{ ASSET_URL }}"></script>
+    {% endassets %}
+  </body>
+</html>

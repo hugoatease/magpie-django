@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block title %}{{ BRAND_NAME }} - Mon compte{% endblock %}
+{% block content %}
+<div class="container">
+	<div class="page-header">
+			<h1>Mon compte</h1>
+	</div>
+	
+	{% if success %}
+	<div class="row">
+		<div class="alert alert-success">
+			{% if success_message %}
+			{{ success_message }}
+			{% else %}
+			<b>Succcès</b> Les modifications ont bien été prises en compte.
+			{% endif %}
+		</div>
+	</div>
+	{% endif %}
+	
+	<div class="row">
+		{% block account %}{% endblock %}
+	</div>
+</div>
+{% endblock %}

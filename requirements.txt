@@ -1,0 +1,6 @@
+Django==1.8.1
+ipaddr==2.1.11
+django-assets==0.10
+djangorestframework==3.1.1
+django-oauth-toolkit==0.8.1
+django-bootstrap3==4.11.0

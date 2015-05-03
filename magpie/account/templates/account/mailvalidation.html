@@ -1,0 +1,16 @@
+{% extends 'account/base.html' %}
+{% block account %}
+<div class="container">
+	<div class="row">
+		{% if mail_success %}
+		<div class="alert alert-success">
+			<b>Succcès</b> L'adresse e-mail de votre compte a bien été modifiée.
+		</div>
+		
+		{% else %}
+		<div class="alert alert-warning">
+			<b>Erreur</b> L'adresse e-mail de votre compte n'a pas pu être modifiée, veuillez réessayer la procédure.
+		</div>
+		{% endif %}
+	</div>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block title %}{{ BRAND_NAME }} - Gestion du VPN{% endblock %}
+{% block content %}
+<div class="container">
+	<div class="page-header">
+			<h1>{% block page_header %}Gestion du VPN{% endblock %}</h1>
+	</div>
+	
+	<div class="row">
+		{% block management %}{% endblock %}
+	</div>
+</div>
+{% endblock %}

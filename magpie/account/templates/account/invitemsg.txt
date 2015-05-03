@@ -1,0 +1,3 @@
+Vous avez été invité par un utilisateur de {{ BRAND_NAME }} à vous inscrire au service.
+
+Vous pouvez accéder à la page d'inscription sur {{ url }} .
