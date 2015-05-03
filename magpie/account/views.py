@@ -47,6 +47,7 @@ def account(request):
     passwordform = PasswordChangeForm(request.user)
     profileform = VPNProfileForm(instance=request.user)
     emailform = VPNEmailChangeForm(instance=request.user)
+    inviteform = VPNInviteForm()
     
     success = False
     success_message = None
@@ -81,10 +82,28 @@ def account(request):
             success = True
             success_message = "Un email vous a été envoyé contenant un lien permettant de valider votre nouvelle adresse."
 
+    if request.method == 'POST' and request.POST.has_key('invitechange'):
+        inviteform = VPNInviteForm(request.POST)
+        if inviteform.is_valid():
+            token = get_random_string(length=50)
+
+            invite = Invite(token=token, email=inviteform.cleaned_data['email'])
+            invite.save()
+
+            url = request.build_absolute_uri(reverse('account_signup', args=[token]))
+
+            message = render_to_string("account/invitemsg.txt", {'url' : url}, context_instance=context)
+
+            send_branded_email("Invitation", message, inviteform.cleaned_data['email'], context)
+
+            success = True
+            success_message = "L'invitation a bien été envoyée."
+
     return render(request, "account/account.html",
                   {'passwordform' : passwordform, 
                    'profileform' : profileform,
                    'emailform' : emailform,
+                   'invite_form': inviteform,
                    'success' : success,
                    'success_message' : success_message})
 

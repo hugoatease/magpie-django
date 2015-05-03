@@ -2,6 +2,7 @@
 {% block account %}
 <div class="col-md-5">
 	{% include 'account/profile.html' %}
+	{% include 'account/invite.html' with form=invite_form success=invite_success %}
 </div>
 
 <div class="col-md-5 col-md-offset-1">
