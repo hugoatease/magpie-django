@@ -1,4 +1,7 @@
-# Django settings for magpie project.
+# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+import os
+BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+
 from ConfigParser import ConfigParser
 config = ConfigParser()
 config.read('magpie.ini')
@@ -43,16 +46,6 @@ if config.has_option('database', 'host'):
 if config.has_option('database', 'port'):
     DATABASES['default']['PORT'] = config.get('database', 'port')
 
-# Static files settings
-STATIC_ROOT = config.get('static', 'root')
-STATIC_URL = config.get('static', 'url')
-STATICFILES_FINDERS = (
-    'django.contrib.staticfiles.finders.FileSystemFinder',
-    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-    'django_assets.finders.AssetsFinder',
-)
-ASSETS_MODULES = ['magpie.assets']
-
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
     'django.template.loaders.app_directories.Loader',
@@ -78,8 +71,9 @@ INSTALLED_APPS = (
     'django.contrib.admindocs',
     'rest_framework',
     'oauth2_provider',
+    'djangobower',
+    'pipeline',
     'bootstrap3',
-    'django_assets',
     'magpie',
     'magpie.servers',
     'magpie.account',
@@ -97,6 +91,45 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "magpie.context.siteconf",
     "magpie.context.is_on_vpn",
 )
+
+# Static files settings
+STATIC_ROOT = config.get('static', 'root')
+STATIC_URL = config.get('static', 'url')
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'djangobower.finders.BowerFinder',
+    'pipeline.finders.PipelineFinder',
+)
+
+BOWER_COMPONENTS_ROOT = BASE_DIR
+BOWER_INSTALLED_APPS = (
+    'bootstrap#3.0.0',
+    'font-awesome#3.2.1',
+)
+
+PIPELINE_CSS_COMPRESSOR = 'pipeline.compressors.NoopCompressor'
+PIPELINE_JS_COMPRESSOR = 'pipeline.compressors.NoopCompressor'
+
+PIPELINE_CSS = {
+    'magpie': {
+        'source_filenames': (
+            'bootstrap/dist/css/bootstrap.min.css',
+            'font-awesome/css/font-awesome.min.css',
+        ),
+        'output_filename': 'assets/magpie.css'
+    }
+}
+
+PIPELINE_JS = {
+    'magpie': {
+        'source_filenames': (
+            'jquery/dist/jquery.min.js',
+            'bootstrap/dist/js/bootstrap.min.js',
+        ),
+        'output_filename': 'assets/magpie.js'
+    }
+}
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
