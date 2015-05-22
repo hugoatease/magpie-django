@@ -113,9 +113,6 @@ def signup(request, token):
     except Invite.DoesNotExist:
         return redirect('django.contrib.auth.views.login')
     
-    if invite.used:
-        return redirect('django.contrib.auth.views.login')
-    
     if request.method == 'GET':
         form = VPNSignupForm()
         
@@ -126,7 +123,6 @@ def signup(request, token):
             user = User.objects.create_user(data['username'], invite.email, data['password2'], first_name=data['first_name'], last_name=data['last_name'])
             
             user_created.send(signup, user=user)
-
             invite.delete()
             
             # Automatic login of created user.
