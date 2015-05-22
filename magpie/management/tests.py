@@ -18,6 +18,9 @@ class ManagementTestCase(TestCase):
         response = self.client.post(url, {'server': 1})
         self.assertEquals(200, response.status_code)
 
+        response = self.client.post(url, {'server': 2})
+        self.assertEquals(200, response.status_code)
+
     def test_access_delete(self):
         url = reverse('management_access')
         response = self.client.post(url, {'id': 1})
