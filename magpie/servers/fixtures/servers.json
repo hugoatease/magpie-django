@@ -1,0 +1,66 @@
+[
+{
+  "fields": {
+    "protocol": "TCP",
+    "name": "magpie",
+    "authority": "Test authority",
+    "cipher": "BF-CBC",
+    "directives": "",
+    "address": "192.168.1.1",
+    "display_name": "Magpie TCP",
+    "type": "TUN",
+    "port": 1194
+  },
+  "model": "servers.server",
+  "pk": 1
+},
+{
+  "fields": {
+    "protocol": "UDP",
+    "name": "magpie-udp",
+    "authority": "Test authority",
+    "cipher": "BF-CBC",
+    "directives": "",
+    "address": "192.168.1.1",
+    "display_name": "Magpie UDP",
+    "type": "TAP",
+    "port": 1194
+  },
+  "model": "servers.server",
+  "pk": 2
+},
+{
+  "fields": {
+    "cidr": 16,
+    "address": "10.8.0.0",
+    "server": 1
+  },
+  "model": "servers.subnet",
+  "pk": 1
+},
+{
+  "fields": {
+    "cidr": 16,
+    "address": "10.9.0.0",
+    "server": 2
+  },
+  "model": "servers.subnet",
+  "pk": 2
+},
+{
+  "fields": {
+    "subnet": 1,
+    "address": "10.8.0.9"
+  },
+  "model": "servers.address",
+  "pk": 1
+},
+{
+  "fields": {
+    "subnet": 2,
+    "address": "10.9.0.2"
+  },
+  "model": "servers.address",
+  "pk": 2
+}
+]

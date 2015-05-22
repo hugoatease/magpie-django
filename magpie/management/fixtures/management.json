@@ -1,0 +1,36 @@
+[
+{
+  "fields": {
+    "current_date": null,
+    "server": 1,
+    "token": "ZTU3pXIOJMTuWatX0amX",
+    "connected": false,
+    "user": 1,
+    "current_origin": null,
+    "address": 1
+  },
+  "model": "management.userconfig",
+  "pk": 1
+},
+{
+  "fields": {
+    "current_date": null,
+    "server": 2,
+    "token": "WiL7juMtlkzKImiQmoBZ",
+    "connected": false,
+    "user": 1,
+    "current_origin": null,
+    "address": 2
+  },
+  "model": "management.userconfig",
+  "pk": 2
+},
+{
+  "fields": {
+    "log_optout": false,
+    "user": 1
+  },
+  "model": "management.usersettings",
+  "pk": 1
+}
+]
