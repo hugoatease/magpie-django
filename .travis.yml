@@ -4,5 +4,9 @@ python:
 install:
   - pip install -r requirements.txt
   - cp magpie.ini.example magpie.ini
+before_script:
+  - pip install coverage python-coveralls
 script:
-  - ./manage.py test
+  - coverage run --source="magpie/" manage.py test
+after_success:
+  - coveralls
