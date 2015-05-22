@@ -116,12 +116,12 @@ class RecoveryTestCase(TestCase):
         response = self.client.post(url, {'email': 'admin@example.com'})
         self.assertEquals(200, response.status_code)
 
-    def recover_wrong_token(self):
+    def test_recover_wrong_token(self):
         url = reverse('account_password_recovery', kwargs={'token': 'foals'})
         response = self.client.get(url)
         self.assertRedirects(response, reverse('account_login'), fetch_redirect_response=False)
 
-    def recover(self):
+    def test_recover(self):
         user = User.objects.get(username='admin')
         token = get_random_string(length=50)
         PasswordRecovery(user=user, email='admin@example.com', token=token).save()
