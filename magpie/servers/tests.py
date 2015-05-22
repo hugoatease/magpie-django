@@ -76,3 +76,14 @@ class BackendAPITestCase(APITestCase):
 
         self.assertEquals(200, response.status_code)
         self.assertJSONEqual(response.content, {"mask": "255.255.0.0", "type": "TUN", "address": "10.8.0.9"})
+
+    def test_disconnect(self):
+        url = reverse('server-disconnect', kwargs={'name': 'magpie'})
+        response = self.client.post(url, {
+            'username': 'admin',
+            'address': '10.8.0.9',
+            'received': 1000,
+            'sent': 1000
+        })
+
+        self.assertEquals(202, response.status_code)
