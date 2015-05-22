@@ -7,6 +7,6 @@ install:
 before_script:
   - pip install coverage python-coveralls
 script:
-  - coverage run --source="magpie/" manage.py test
+  - coverage run --source="magpie/" --omit=magpie/wsgi.py manage.py test
 after_success:
   - coveralls
