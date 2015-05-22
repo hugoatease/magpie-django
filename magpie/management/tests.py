@@ -70,7 +70,32 @@ class ManagementAPITestCase(APITestCase):
         response = self.client.get(url)
         self.assertEquals(200, response.status_code)
 
-    # def test_access_create(self):
-    #     url = reverse('userconfig-list')
-    #     response = self.client.post(url, {'server': 'magpie'})
-    #     self.assertEquals(201, response.status_code)
+    def test_access_create(self):
+        url = reverse('userconfig-list')
+        response = self.client.post(url, {'server': 'magpie'})
+        self.assertEquals(201, response.status_code)
+
+    def test_access_delete(self):
+        url = reverse('userconfig-detail', kwargs={'pk': 1})
+        response = self.client.delete(url)
+        self.assertEquals(204, response.status_code)
+
+    def test_bandwidth_report(self):
+        url = reverse('bandwidthact-list')
+        response = self.client.get(url)
+        self.assertEquals(200, response.status_code)
+
+    def test_bandwidth_used(self):
+        url = reverse('bandwidthact-used')
+        response = self.client.get(url)
+        self.assertEquals(200, response.status_code)
+
+    def test_logs(self):
+        url = reverse('connectionlog-list')
+        response = self.client.get(url)
+        self.assertEquals(200, response.status_code)
+
+    def test_logs_clear(self):
+        url = reverse('connectionlog-clear')
+        response = self.client.post(url)
+        self.assertEquals(204, response.status_code)
