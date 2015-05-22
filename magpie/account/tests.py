@@ -1,7 +1,7 @@
 from django.test import TestCase
 from django.core.urlresolvers import reverse
 from django.utils.crypto import get_random_string
-from models import Invite, PasswordRecovery
+from models import Invite, PasswordRecovery, MailValidation
 from django.contrib.auth.models import User
 
 
@@ -84,7 +84,7 @@ class SignupTestCase(TestCase):
         Invite(email='holy@example.com', token=token).save()
 
         url = reverse('account_signup', kwargs={'token': token})
-        response = self.client.post(url)
+        response = self.client.get(url)
         self.assertEquals(200, response.status_code)
 
         response = self.client.post(url, {
@@ -134,4 +134,22 @@ class RecoveryTestCase(TestCase):
             'new_password1': 'holyfire',
             'new_password2': 'holyfire'
         })
+        self.assertEquals(200, response.status_code)
+
+
+class MailValidationTestCase(TestCase):
+    fixtures = ['user.json']
+
+    def test_wrong_token(self):
+        url = reverse('account_mailvalidation', kwargs={'token': 'foals'})
+        response = self.client.get(url)
+        self.assertEquals(200, response.status_code)
+
+    def test_validation(self):
+        user = User.objects.get(username='admin')
+        token = get_random_string(length=50)
+        MailValidation(user=user, token=token, email='holy@example.com').save()
+
+        url = reverse('account_mailvalidation', kwargs={'token': token})
+        response = self.client.get(url)
         self.assertEquals(200, response.status_code)
