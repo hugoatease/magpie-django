@@ -60,7 +60,7 @@ class AccountTestCase(TestCase):
 
 
 class SignupTestCase(TestCase):
-    fixtures = ['user.json']
+    fixtures = ['user.json', 'servers.json']
 
     def test_begin(self):
         url = reverse('account_signup_begin')
