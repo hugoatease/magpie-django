@@ -1,0 +1,17 @@
+[
+{
+  "fields": {
+    "redirect_uris": "",
+    "name": "Backend",
+    "service": true,
+    "client_type": "confidential",
+    "user": 1,
+    "client_id": "PusyUU7hriuatfiRAAbeRwBogGEakXATe0DQ34zs",
+    "skip_authorization": false,
+    "client_secret": "T5FxPSjsg71QySlGW1eO5FEme18ag0M5sWckOzSAOCIE16XIzT8H5LimriHnksH3AW3WiE2HosG3EyvaxtZuztuzyd9yEwA3S7KNfdRuhyBevVNsLhxeNGtqDN8atWV4",
+    "authorization_grant_type": "client-credentials"
+  },
+  "model": "magpie.vpnapplication",
+  "pk": 1
+}
+]

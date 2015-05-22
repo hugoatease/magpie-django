@@ -1,0 +1,13 @@
+[
+{
+  "fields": {
+    "application": 1,
+    "token": "QNj05qG3Y1WXUkntMg0kQXOjCYdaa2",
+    "expires": "2050-05-22T18:01:28Z",
+    "user": null,
+    "scope": "service"
+  },
+  "model": "oauth2_provider.accesstoken",
+  "pk": 5
+}
+]
