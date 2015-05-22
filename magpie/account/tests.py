@@ -17,7 +17,7 @@ class AccountTestCase(TestCase):
             'password': 1,
             'old_password': 'admin',
             'new_password1': 'holyfire',
-            'new_password1': 'holyfire'
+            'new_password2': 'holyfire'
         })
         self.assertEquals(200, response.status_code)
 
