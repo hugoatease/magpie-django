@@ -14,35 +14,34 @@
 
 from rest_framework import serializers
 from models import UserConfig, BandwidthAct, ConnectionLog, UserSettings
+from magpie.servers.models import Server
 from magpie.servers.serializers import AddressSerializer
 
 
-class UserConfigSerializer(serializers.HyperlinkedModelSerializer):
+class UserConfigSerializer(serializers.ModelSerializer):
     address = AddressSerializer(read_only=True)
+    server = serializers.SlugRelatedField(slug_field='name', queryset=Server.objects.all())
+
     class Meta:
         model = UserConfig
         fields = ('id', 'server', 'address', 'token')
         read_only_fields = ('address', 'token')
-        extra_kwargs = {
-            'server': {'lookup_field': 'name'}
-        }
 
 
-class BandwidthActSerializer(serializers.HyperlinkedModelSerializer):
+class BandwidthActSerializer(serializers.ModelSerializer):
     class Meta:
         model = BandwidthAct
         fields = ('begin', 'end', 'bytes_sent', 'bytes_received')
 
 
-class ConnectionLogSerializer(serializers.HyperlinkedModelSerializer):
+class ConnectionLogSerializer(serializers.ModelSerializer):
+    server = serializers.SlugRelatedField(slug_field='name', queryset=Server.objects.all())
+
     class Meta:
         model = ConnectionLog
         fields = ('server', 'date', 'origin')
-        extra_kwargs = {
-            'server': {'lookup_field': 'name'}
-        }
 
-class UserSettingsSerializer(serializers.HyperlinkedModelSerializer):
+class UserSettingsSerializer(serializers.ModelSerializer):
     class Meta:
         model = UserSettings
         fields = ('accesses', 'log_optout')

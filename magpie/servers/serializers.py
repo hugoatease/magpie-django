@@ -15,21 +15,20 @@
 from rest_framework import serializers
 from models import Server, Subnet, Address
 
-class SubnetSerializer(serializers.HyperlinkedModelSerializer):
+class SubnetSerializer(serializers.ModelSerializer):
+    server = serializers.SlugRelatedField(slug_field='name', queryset=Server.objects.all())
+
     class Meta:
         model = Subnet
         fields = ('id', 'server', 'address', 'cidr')
-        extra_kwargs = {
-            'server': {'lookup_field': 'name'}
-        }
 
-class AddressSerializer(serializers.HyperlinkedModelSerializer):
+class AddressSerializer(serializers.ModelSerializer):
     subnet = SubnetSerializer()
     class Meta:
         model = Address
         fields = ('id', 'address', 'subnet')
 
-class ServerSerializer(serializers.HyperlinkedModelSerializer):
+class ServerSerializer(serializers.ModelSerializer):
     subnets = SubnetSerializer(many=True)
     class Meta:
         model = Server

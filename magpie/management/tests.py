@@ -57,3 +57,20 @@ class ManagementTestCase(TestCase):
         url = reverse('management_logs')
         response = self.client.post(url, {'optout': 0})
         self.assertEquals(200, response.status_code)
+
+
+class ManagementAPITestCase(APITestCase):
+    fixtures = ['user.json', 'servers.json', 'management.json']
+
+    def setUp(self):
+        self.client.login(username="admin", password="admin")
+
+    def test_access_list(self):
+        url = reverse('userconfig-list')
+        response = self.client.get(url)
+        self.assertEquals(200, response.status_code)
+
+    # def test_access_create(self):
+    #     url = reverse('userconfig-list')
+    #     response = self.client.post(url, {'server': 'magpie'})
+    #     self.assertEquals(201, response.status_code)
