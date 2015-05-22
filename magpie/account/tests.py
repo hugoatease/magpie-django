@@ -1,7 +1,8 @@
 from django.test import TestCase
 from django.core.urlresolvers import reverse
 from django.utils.crypto import get_random_string
-from models import Invite
+from models import Invite, PasswordRecovery
+from django.contrib.auth.models import User
 
 
 class AccountTestCase(TestCase):
@@ -95,3 +96,42 @@ class SignupTestCase(TestCase):
         })
 
         self.assertRedirects(response, reverse('index'), fetch_redirect_response=False)
+
+
+class RecoveryTestCase(TestCase):
+    fixtures = ['user.json']
+
+    def test_begin_form(self):
+        url = reverse('account_password_recovery_begin')
+        response = self.client.get(url)
+        self.assertEquals(200, response.status_code)
+
+    def test_begin_wrong_email(self):
+        url = reverse('account_password_recovery_begin')
+        response = self.client.post(url, {'email': 'holy@example.com'})
+        self.assertEquals(200, response.status_code)
+
+    def test_begin(self):
+        url = reverse('account_password_recovery_begin')
+        response = self.client.post(url, {'email': 'admin@example.com'})
+        self.assertEquals(200, response.status_code)
+
+    def recover_wrong_token(self):
+        url = reverse('account_password_recovery', kwargs={'token': 'foals'})
+        response = self.client.get(url)
+        self.assertRedirects(response, reverse('account_login'), fetch_redirect_response=False)
+
+    def recover(self):
+        user = User.objects.get(username='admin')
+        token = get_random_string(length=50)
+        PasswordRecovery(user=user, email='admin@example.com', token=token).save()
+
+        url = reverse('account_password_recovery', kwargs={'token': token})
+        response = self.client.get(url)
+        self.assertEquals(200, response.status_code)
+
+        response = self.client.post(url, {
+            'new_password1': 'holyfire',
+            'new_password2': 'holyfire'
+        })
+        self.assertEquals(200, response.status_code)
