@@ -1,14 +1,12 @@
 [magpie]
 brand = Magpie
-debug = false
+debug = true
 secret = change_this
 server_email = magpie@example.com
 
 [database]
-engine = postgresql_psycopg2
-name = magpie
-user = magpie
-password = magpie
+engine = sqlite3
+name = magpie.db
 
 [static]
 root = static/
