@@ -77,6 +77,26 @@ class BackendAPITestCase(APITestCase):
         self.assertEquals(200, response.status_code)
         self.assertJSONEqual(response.content, {"mask": "255.255.0.0", "type": "TUN", "address": "10.8.0.9"})
 
+    def test_connect_wrong_user(self):
+        url = reverse('server-connect', kwargs={'name': 'magpie'})
+        response = self.client.post(url, {
+            'username': 'foals',
+            'token': 'ZTU3pXIOJMTuWatX0amX',
+            'origin': '8.8.8.8'
+        })
+
+        self.assertEquals(400, response.status_code)
+
+    def test_connect_wrong_token(self):
+        url = reverse('server-connect', kwargs={'name': 'magpie'})
+        response = self.client.post(url, {
+            'username': 'admin',
+            'token': 'wrongtoken',
+            'origin': '8.8.8.8'
+        })
+
+        self.assertEquals(403, response.status_code)
+
     def test_disconnect(self):
         url = reverse('server-disconnect', kwargs={'name': 'magpie'})
         response = self.client.post(url, {
@@ -87,3 +107,14 @@ class BackendAPITestCase(APITestCase):
         })
 
         self.assertEquals(202, response.status_code)
+
+    def test_disconnect_wrong_username(self):
+        url = reverse('server-disconnect', kwargs={'name': 'magpie'})
+        response = self.client.post(url, {
+            'username': 'foals',
+            'address': '10.8.0.9',
+            'received': 1000,
+            'sent': 1000
+        })
+
+        self.assertEquals(400, response.status_code)

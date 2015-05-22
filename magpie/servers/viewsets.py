@@ -70,13 +70,12 @@ class ServerViewSet(viewsets.ModelViewSet):
     def disconnect(self, request, *args, **kwargs):
         server = self.get_object()
         req = serializers.DisconnectRequestSerializer(data=request.data)
-        if not req.is_valid():
-            return Response(status=status.HTTP_400_BAD_REQUEST)
+        req.is_valid(raise_exception=True)
 
         try:
             user = User.objects.get(username=req.validated_data['username'])
         except:
-            return Response(status=status.HTTP_401_UNAUTHORIZED)
+            raise exceptions.ValidationError("User matching username not found")
 
         management.bandwidth_add(user, server, req.validated_data['received'], req.validated_data['sent'])
 
