@@ -31,11 +31,11 @@ from signals import user_created
 
 from django.template.context import RequestContext
 
-def mailsubject(subject, context):
-    return context['BRAND_NAME'] + " - " + subject
+def mailsubject(subject):
+    return settings.BRAND_NAME + " - " + subject
 
-def send_branded_email(subject, message, receipent, context):
-    subject = mailsubject(subject, context)
+def send_branded_email(subject, message, receipent):
+    subject = mailsubject(subject)
     sender = getattr(settings, 'SERVER_EMAIL', 'magpie@example.com')
     send_mail(subject, message, sender, [receipent])
     
@@ -77,7 +77,7 @@ def account(request):
             
             url = request.build_absolute_uri(reverse('account_mailvalidation', args=[token]))
             message = render_to_string("account/mailvalidation.txt", {'url' : url}, context_instance=context)
-            send_branded_email("Validation d'adresse e-mail", message, emailform.cleaned_data['email'], context)
+            send_branded_email("Validation d'adresse e-mail", message, emailform.cleaned_data['email'])
             
             success = True
             success_message = "Un email vous a été envoyé contenant un lien permettant de valider votre nouvelle adresse."
@@ -94,7 +94,7 @@ def account(request):
 
             message = render_to_string("account/invitemsg.txt", {'url' : url}, context_instance=context)
 
-            send_branded_email("Invitation", message, inviteform.cleaned_data['email'], context)
+            send_branded_email("Invitation", message, inviteform.cleaned_data['email'])
 
             success = True
             success_message = "L'invitation a bien été envoyée."
@@ -157,7 +157,7 @@ def signup_begin(request):
         
         message = render_to_string("account/signupmsg.txt", {'url' : url}, context_instance=context)
         
-        send_branded_email("Inscription", message, form.cleaned_data['email'], context)
+        send_branded_email("Inscription", message, form.cleaned_data['email'])
         
         success = True
         
@@ -194,7 +194,7 @@ def password_recovery_begin(request):
             
             message = render_to_string("registration/recoverymsg.txt", {'url' : url}, context_instance=context)
             
-            send_branded_email("Récupération de compte", message, form.cleaned_data['email'], context)
+            send_branded_email("Récupération de compte", message, form.cleaned_data['email'])
             
             success = True
 
