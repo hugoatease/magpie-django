@@ -28,7 +28,7 @@ USE_TZ = True
 LOCALE_PATHS = (BASE_DIR + '/translations',)
 
 # Authentication settings
-LOGIN_URL = "/account/login"
+LOGIN_URL = "/account/login/"
 LOGIN_REDIRECT_URL = "/"
 
 # Database settings
@@ -84,6 +84,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "django.contrib.auth.context_processors.auth",
     "django.core.context_processors.debug",
     "django.core.context_processors.i18n",
+    "django.template.context_processors.request",
     "django.core.context_processors.media",
     "django.core.context_processors.static",
     "django.core.context_processors.tz",

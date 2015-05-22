@@ -22,6 +22,7 @@
 					<form method="post" action="{% url 'django.contrib.auth.views.login' %}">
 						{% csrf_token %}
 						{% bootstrap_form form %}
+						<input type="hidden" name="next" value="{{ request.GET.next }}" />
 						<a href="{% url 'account_password_recovery_begin' %}" >{% trans 'Password recovery' %}</a>
 						<br /><br />
 						
