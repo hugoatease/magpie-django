@@ -83,6 +83,9 @@ class SignupTestCase(TestCase):
         Invite(email='holy@example.com', token=token).save()
 
         url = reverse('account_signup', kwargs={'token': token})
+        response = self.client.post(url)
+        self.assertEquals(200, response.status_code)
+
         response = self.client.post(url, {
             'username': 'holy',
             'password1': 'fire',
