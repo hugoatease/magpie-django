@@ -27,9 +27,5 @@ def create_UserSettings(sender, **kwargs):
     settings.save()
     
     if Server.objects.count() > 0:
-        try:
-            server = Server.objects.all()[0]
-        except:
-            return
-        
+        server = Server.objects.all()[0]
         access_create(user, server)
