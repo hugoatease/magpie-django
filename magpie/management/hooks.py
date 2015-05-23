@@ -13,15 +13,18 @@
 # limitations under the License.
 
 from django.dispatch import receiver
-import magpie.account.signals
+from django.contrib.auth.signals import user_logged_in
 
 from models import UserSettings
 from magpie.servers.models import Server
 from common import access_create
 
-@receiver(magpie.account.signals.user_created)
+@receiver(user_logged_in)
 def create_UserSettings(sender, **kwargs):
     user = kwargs['user']
+
+    if UserSettings.objects.filter(user=user).count() > 0:
+        return
     
     settings = UserSettings(user=user)
     settings.save()

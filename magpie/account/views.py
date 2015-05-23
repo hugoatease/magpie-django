@@ -27,7 +27,6 @@ from django.core.urlresolvers import reverse
 from models import Invite, MailValidation, PasswordRecovery
 
 from forms import *
-from signals import user_created
 
 from django.template.context import RequestContext
 
@@ -121,8 +120,6 @@ def signup(request, token):
         if form.is_valid():
             data = form.cleaned_data
             user = User.objects.create_user(data['username'], invite.email, data['password2'], first_name=data['first_name'], last_name=data['last_name'])
-            
-            user_created.send(signup, user=user)
             invite.delete()
             
             # Automatic login of created user.
