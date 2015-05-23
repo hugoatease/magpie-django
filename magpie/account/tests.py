@@ -1,4 +1,5 @@
 from django.test import TestCase
+from django.test.utils import override_settings
 from django.core.urlresolvers import reverse
 from django.utils.crypto import get_random_string
 from models import Invite, PasswordRecovery, MailValidation
@@ -63,6 +64,7 @@ class AccountTestCase(TestCase):
 class SignupTestCase(TestCase):
     fixtures = ['user.json', 'servers.json']
 
+    @override_settings(SELF_REGISTER=True)
     def test_begin(self):
         url = reverse('account_signup_begin')
         response = self.client.get(url)
@@ -73,6 +75,12 @@ class SignupTestCase(TestCase):
 
         response = self.client.post(url, {'email': 'holy@example.com'})
         self.assertEquals(200, response.status_code)
+
+    @override_settings(SELF_REGISTER=False)
+    def test_begin_disabled(self):
+        url = reverse('account_signup_begin')
+        response = self.client.get(url)
+        self.assertRedirects(response, reverse('account_login'), fetch_redirect_response=False)
 
     def test_wrong_invite(self):
         url = reverse('account_signup', kwargs={'token': 'foals'})

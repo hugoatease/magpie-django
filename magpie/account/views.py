@@ -132,7 +132,10 @@ def signup(request, token):
 
 def signup_begin(request):
     context = RequestContext(request)
-    
+
+    if not settings.SELF_REGISTER:
+        return redirect('account_login')
+
     if request.POST:
         form = VPNBeginSignupForm(request.POST)
     else:

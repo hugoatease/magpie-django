@@ -3,6 +3,7 @@ brand = Magpie
 debug = true
 secret = change_this
 server_email = magpie@example.com
+self_register = false
 
 [database]
 engine = sqlite3

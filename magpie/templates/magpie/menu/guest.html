@@ -1,6 +1,8 @@
 {% load i18n %}
 <ul class="nav navbar-nav">
+	{% if SELF_REGISTER %}
 	<li><a href="{% url 'account_signup_begin' %}">{% trans 'Sign up' %}</a></li>
+	{% endif %}
 </ul>
 
 <ul class="nav navbar-nav navbar-right">

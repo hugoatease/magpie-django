@@ -16,12 +16,15 @@ from django.conf import settings
 from management.models import UserConfig
 
 def siteconf(request):
-    return {'BRAND_NAME' : getattr(settings, 'BRAND_NAME', 'Magpie')}
+    return {
+        'BRAND_NAME': getattr(settings, 'BRAND_NAME', 'Magpie'),
+        'SELF_REGISTER': getattr(settings, 'SELF_REGISTER', False)
+    }
 
 def is_on_vpn(request):
     if request.user.is_authenticated():
         active = UserConfig.objects.filter(user=request.user, connected=True)
         count = active.count()
-        return {'VPN_CONNECTED' : count, 'VPN_ACTIVE' : active}
+        return {'VPN_CONNECTED': count, 'VPN_ACTIVE': active}
     
-    return {'VPN_CONNECTED' : False}
+    return {'VPN_CONNECTED': False}

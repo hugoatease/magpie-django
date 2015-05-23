@@ -18,6 +18,7 @@ TEMPLATE_DEBUG = DEBUG
 # Magpie settings
 BRAND_NAME = config.get('magpie', 'brand')
 SERVER_EMAIL = config.get('magpie', 'server_email')
+SELF_REGISTER = config.get('magpie', 'self_register') == 'true'
 
 # Localization settings
 TIME_ZONE = config.get('intl', 'timezone')

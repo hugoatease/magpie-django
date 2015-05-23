@@ -27,7 +27,9 @@
 						<br /><br />
 						
 						<input class="btn btn-primary" type="submit" value="{% trans 'Log in' %}" />
+						{% if SELF_REGISTER %}
 						<a class="btn btn-default" href="{% url 'account_signup_begin' %}">{% trans 'Sign up' %}</a>
+						{% endif %}
 					</form>
 			</div>
 		</div>

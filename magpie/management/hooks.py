@@ -25,7 +25,7 @@ def create_UserSettings(sender, **kwargs):
 
     if UserSettings.objects.filter(user=user).count() > 0:
         return
-    
+
     settings = UserSettings(user=user)
     settings.save()
     
